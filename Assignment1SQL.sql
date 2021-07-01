@@ -64,12 +64,12 @@ Birth date
 select count(user_name) from dbo.employee where birthday IN( select birthday from dbo.employee group by birthday having count(birthday)> 1)
 
 Find no of people sharing Birth month
-select COUNT(username) from userBirthdate where birthday IN( select birthday from dbo.userBirthdate group by birthday having count(birthday)> 1)
+select COUNT(username) from dbo.employee where birthday IN( select birthday from dbo.employee group by birthday having count(birthday)> 1)
 
 Find no of people sharing weekday
-select COUNT(username), DATENAME(weekday, GETDATE()) as WEEKDAY from userBirthdate
+select COUNT(username), DATENAME(weekday, GETDATE()) as WEEKDAY from dbo.employee
 
 Find the current age of all people
-select *, DATEDIFF(year, birthday, GETDATE()) Age from userBirthdate
+select *, DATEDIFF(year, birthday, GETDATE()) Age from dbo.employee
 
 
